@@ -4,9 +4,9 @@
  */
 public class CompoundInteres {
     public static void main(String[] args) {
-        final double STARTRATE = 10;
-        final int NRATES = 6;
-        final int NYEARS = 10;
+        final double STARTRATE = 0;
+        final int NRATES = 10;
+        final int NYEARS = 30;
 
         // set interest rates to 10 ... 15%
         double[] interestRate = new double[NRATES];
@@ -33,6 +33,20 @@ public class CompoundInteres {
                 // compute this year's balances
                 balances[i][j] = oldBalance + interest;
             }
+        }
+
+        // print one row of interest rates
+        for (int j = 0; j < interestRate.length; j++) {
+            System.out.printf("%9.0f%%", 100 * interestRate[j]);
+        }
+        System.out.println();
+        // print balance table
+        for (double[] row : balances) {
+            // print table row
+            for (double balance : row) {
+                System.out.printf("%10.2f", balance);
+            }
+            System.out.println();
         }
     }
 }
